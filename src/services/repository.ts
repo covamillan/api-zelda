@@ -1,3 +1,3 @@
-export interface Repository<X extends { id: number }> {
+export interface Repository<X> {
   getAll(): Promise<X[]>;
 }

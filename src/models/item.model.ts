@@ -1,4 +1,4 @@
-export type Default = {
+export type Item = {
   id: number;
   category: 'creatures' | 'equipment' | 'materials' | 'monsters' | 'treasure';
   name: string;
