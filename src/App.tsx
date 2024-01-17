@@ -1,8 +1,16 @@
-import React from 'react';
 import './App.css';
+import { Cards } from './components/cards/cards';
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
 
 function App() {
-  return <h1>hola</h1>;
+  return (
+    <>
+      <Header />
+      <Cards />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

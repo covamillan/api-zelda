@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 
 import { ItemsRepo } from '../services/items.repo';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,8 +6,6 @@ import { AppDispatch, RootState } from '../store/store';
 import { getItems } from '../redux/items.slice';
 
 export function useItems(repo: ItemsRepo) {
-  const ItemsRepo = useMemo(() => new ItemsRepo(), []);
-
   const { items, itemsState } = useSelector((state: RootState) => state.items);
   const itemsDispatch = useDispatch<AppDispatch>();
 
