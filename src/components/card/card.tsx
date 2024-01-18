@@ -1,11 +1,14 @@
+import { Link } from 'react-router-dom';
 import { Item } from '../../models/item.model';
 
 export function Card({ item }: { item: Item }) {
   return (
     <>
       <h3>{item.id}</h3>
-      <h3>{item.category}</h3>
-      <h1>{item.name}</h1>
+      <h3>{item.category}</h3>{' '}
+      <Link to={`/details/${item.id}`}>
+        <h4>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</h4>
+      </Link>
       <img src={item.image} alt={item.name} />
       <p>{item.description}</p>
       <h2>{item?.cooking_effect}</h2>
