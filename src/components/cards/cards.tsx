@@ -23,3 +23,16 @@ export function Cards() {
     </>
   );
 }
+
+function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve('Data'), 2000);
+  });
+}
+
+async function getData() {
+  const result = await fetchData();
+  console.log(result);
+}
+
+getData();

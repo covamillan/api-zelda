@@ -5,20 +5,37 @@ import { Repository } from './repository';
 
 export class ItemsRepo implements Repository<Item> {
   url: string;
+
   constructor() {
     this.url = API_URL;
   }
 
   async getAll(): Promise<Item[]> {
-    const url = this.url;
-    const {
-      data: { data },
-    } = await axios.get(url);
+    const categories = [
+      'creatures',
+      'equipment',
+      'materials',
+      'monsters',
+      'treasure',
+    ];
 
-    if (!data) {
-      throw new Error('Error fetching data');
-    }
+    const allData: Item[] = await Promise.all(
+      categories.map(async (category) => {
+        const url = this.url + category;
 
-    return data;
+        const {
+          data: { data },
+        } = await axios.get(url);
+
+        if (!data) {
+          throw new Error('Error fetching data');
+        }
+
+        return data;
+      })
+    );
+
+    const flattenedData = allData.flat();
+    return flattenedData;
   }
 }
