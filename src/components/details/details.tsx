@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useParams } from 'react-router-dom';
 import { useItems } from '../../hooks/use.items';
 import { ItemsRepo } from '../../services/items.repo';
