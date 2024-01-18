@@ -1,9 +1,14 @@
-import "./App.css";
+import './App.css';
+import { Cards } from './components/cards/cards';
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
 
 function App() {
   return (
     <>
-      <p>holi</p>
+      <Header />
+      <Cards />
+      <Footer />
     </>
   );
 }
