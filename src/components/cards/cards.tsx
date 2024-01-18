@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useItems } from '../../hooks/use.items';
 import { ItemsRepo } from '../../services/items.repo';
 import { useEffect } from 'react';
 import { Card } from '../card/card';
 
-export function Cards() {
+export default function Cards() {
   const repo = new ItemsRepo();
   const { items, loadItems } = useItems(repo);
 
@@ -32,7 +33,6 @@ function fetchData() {
 
 async function getData() {
   const result = await fetchData();
-  console.log(result);
 }
 
 getData();

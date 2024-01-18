@@ -3,11 +3,13 @@ import { Item } from '../models/item.model';
 
 export type ItemsState = {
   items: Item[];
+  item: Item;
   itemsState: 'idle' | 'loaded' | 'error';
 };
 
 const initialState: ItemsState = {
   items: [],
+  item: {} as Item,
   itemsState: 'idle',
 };
 const itemsSlice = createSlice({
@@ -18,8 +20,11 @@ const itemsSlice = createSlice({
     getItems(state, action: PayloadAction<Item[]>) {
       state.items = action.payload;
     },
+    getItem(state, action: PayloadAction<Item>) {
+      state.item = action.payload;
+    },
   },
 });
 
-export const { getItems } = itemsSlice.actions;
+export const { getItems, getItem } = itemsSlice.actions;
 export default itemsSlice.reducer;

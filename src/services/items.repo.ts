@@ -38,4 +38,19 @@ export class ItemsRepo implements Repository<Item> {
     const flattenedData = allData.flat();
     return flattenedData;
   }
+
+  async getById(id: string): Promise<Item> {
+    const url =
+      'https://botw-compendium.herokuapp.com/api/v3/compendium/entry/' + id;
+
+    const {
+      data: { data },
+    } = await axios.get(url);
+
+    if (!data) {
+      throw new Error('Error fetching data');
+    }
+
+    return data;
+  }
 }
